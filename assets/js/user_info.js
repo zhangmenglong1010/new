@@ -27,8 +27,6 @@ $(function() {
             }
         })
     }
-
-
     //2-重置表单信息
     //效果：重新把用户展示到表单中
     $('#btnReset').on('click', function(e) {
@@ -40,20 +38,14 @@ $(function() {
 
     //自定义一个验证昵称长度规则
     layui.form.verify({
-        nickname: function(value, item) {
-            if (value.length > 6) {
-                return '昵称不能超过六个字'
+            nickname: function(value, item) {
+                if (value.length > 6) {
+                    return '昵称不能超过六个字'
+                }
             }
-
-        }
-
-
-    })
-
-
-    //完成用户修改功能
+        })
+        //完成用户修改功能
     $('.layui-form').on('submit', function(e) {
-
         e.preventDefault()
             //获取输入框中的内容
         var data = $(this).serialize()
@@ -70,8 +62,6 @@ $(function() {
                     //更改父页面元素index.html中的欢迎用语
                     //window.parent父页面对应的window对象
                 window.parent.getUserInfo()
-
-
             }
         })
     })
