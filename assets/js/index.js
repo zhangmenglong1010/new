@@ -14,7 +14,19 @@ $(function() {
                     return layui.layer.msg('获取用户信息失败')
                 }
                 renderAvatar(res.data)
-            }
+            },
+            // complete: function(res) {
+            //     //请求成功和失败都会调用此回调函数
+            //     console.log(res);
+
+            //     if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+            //         //清除token
+            //         localStorage.removeItem('token')
+            //             //跳转到登录页面
+            //         location.href = '/login.html'
+
+            //     }
+            // }
         })
     }
 
@@ -33,4 +45,19 @@ $(function() {
             $('.layui-nav-img').hide()
         }
     }
+
+
+    //退出功能
+    $('#logout').on('click', function() {
+        layer.confirm('您确定要退出嘛?', { icon: 3, title: '提示' }, function(index) {
+            //do something
+            //清除本地中的token
+            localStorage.removeItem('token')
+                //页面登录跳转页面
+            location.href = '/login.html'
+            layer.close(index)
+
+
+        });
+    })
 })
