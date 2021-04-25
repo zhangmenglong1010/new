@@ -52,7 +52,7 @@ $(function() {
 
 
     //完成用户修改功能
-    $('.layui-btn').on('submit', function(e) {
+    $('.layui-form').on('submit', function(e) {
 
         e.preventDefault()
             //获取输入框中的内容
@@ -67,6 +67,9 @@ $(function() {
                     return layui.layer.msg(res.message, { icon: 5 })
                 }
                 layui.layer.msg(res.message, { icon: 6 })
+                    //更改父页面元素index.html中的欢迎用语
+                    //window.parent父页面对应的window对象
+                window.parent.getUserInfo()
 
 
             }
